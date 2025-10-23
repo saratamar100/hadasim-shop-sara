@@ -1,0 +1,16 @@
+.header {
+  background-color: #4CAF50;
+  padding: 1rem;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+}   
+.logo {
+  height: 40px;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+.title {
+  display: inline-block;
+  vertical-align: middle;
+}

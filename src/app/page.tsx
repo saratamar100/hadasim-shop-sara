@@ -1,103 +1,25 @@
 import Image from "next/image";
+import Card from "./components/Card/Card";
 
 export default function Home() {
+  const imageSrc =
+    "data:image/webp;base64,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";
+  const title = "Shirt";
+  const description = "A cool shirt";
+  const price = 29.99;
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+    <main>
+      <div className="grid">
+        {[1, 2, 3].map((i) => (
+          <Card
+            key={i}
+            image={imageSrc}
+            title={title}
+            description={description}
+            price={price}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        ))}
+      </div>
+    </main>
   );
 }
